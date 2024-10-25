@@ -26,8 +26,6 @@ export default function StatementList(props: SingleStatementProps) {
 
           {!isEditing && <span className={styles.moneyValue}>{parseMoneyValue(moneyValue)}</span>}
           {isEditing && <TextField variant="standard" value={parseMoneyValue(moneyValue)}/>}
-
-          <span className={styles.border}/>
         </div>
       )
     );
