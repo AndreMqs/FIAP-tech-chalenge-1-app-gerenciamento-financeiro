@@ -31,4 +31,11 @@
   width: 40px;
   height: 40px;
   margin-left: 15px;
+  background-color: #004D61;
+  color: #fff;
+
+  &:hover {
+    background-color: #DEE9EA;
+    color: #004D61;
+  }
 }
