@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={styles.global} lang="pt-br">
+    <html className={styles.global} style={{border: '2px solid blue'}} lang="pt-br">
       <body>{children}</body>
     </html>
   )
