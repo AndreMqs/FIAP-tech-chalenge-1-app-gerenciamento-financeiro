@@ -25,7 +25,7 @@ export default function MainPage(props: MainPageProps) {
   return (
     <div id='mainContainer' className={cn(styles.flexColumnCenterContainer)}>
       <Header/>
-      <div id='mainContentContainer' className={cn(styles.flexRowCenterContainer, styles.borderTest)}>
+      <div id='mainContentContainer' className={cn(styles.mainContentContainer, styles.borderTest)}>
         <Menu />
         {renderMiddleContent()}
         <Statement />
