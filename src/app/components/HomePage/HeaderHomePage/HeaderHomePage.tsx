@@ -2,12 +2,13 @@
 import Image from "next/image";
 import cn from "classnames";
 
+import { IconButton } from "@mui/material";
+
 import Logo from "@/app/images/Logo.svg";
 import LogoIcon from "@/app/images/LogoIcon.svg";
 import MenuIcon from '@mui/icons-material/Menu';
 
 import styles from "./HeaderHomePage.module.scss"
-import { IconButton } from "@mui/material";
 
 
 export default function HeaderHomePage() {
@@ -17,7 +18,7 @@ export default function HeaderHomePage() {
   }
 
   const getLogo = () => {
-    if (window.screen.width >= 720 || window.screen.width <= 360) {
+    if (window.screen.width > 768 || window.screen.width <= 425) {
       return Logo;
     }
 
@@ -25,7 +26,7 @@ export default function HeaderHomePage() {
   }
 
   const getBtnOpenAccountText = () => {
-    if (window.screen.width >= 720) {
+    if (window.screen.width > 768) {
       return 'Abrir minha conta';
     }
 
@@ -72,7 +73,7 @@ export default function HeaderHomePage() {
   }
 
   const renderHeader = () => {
-    if (window.screen.width <= 360) {
+    if (window.screen.width <= 425) {
       return renderMobileHeader();
     }
 

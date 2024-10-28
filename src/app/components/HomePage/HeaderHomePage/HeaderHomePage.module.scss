@@ -6,11 +6,11 @@
   align-items: center;
   height: 96px;
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     padding: 0px 60px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     padding: 0px 24px;
     justify-content: space-between;
   }
@@ -24,7 +24,7 @@
     & .logo {
       margin-right: 72px;
 
-      @media (max-width: 720px) {
+      @media (max-width: 768px) {
         margin-right: 56px;
       }
     }
@@ -58,36 +58,39 @@
       height: 48px;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
       
-      @media (max-width: 720px) {
+      @media (max-width: 768px) {
         width: 144px;
       }
     
       &.btnOpenAccount {
         background-color: #47A138;
         color: #fff;
+        border: none;
 
         &:hover {
           color: #47A138;
           background-color: #000000;
-          border: 1px solid #47A138;
+          border: 2px solid #47A138;
           transition: 0.3s;
         }
       }
       
       &.btnLogin {
-        border: 1px solid #47A138;
+        border: 2px solid #47A138;
         color: #47A138;
         background-color: #000000;
         margin-left: 24px;
 
-        @media (max-width: 720px) {
+        @media (max-width: 768px) {
           margin-left: 16px;
         }
         
         &:hover {
           color: #47A138;
-          border: 1px solid #000000;
+          border: 2px solid #000000;
           transition: 0.3s;
         }
       }
