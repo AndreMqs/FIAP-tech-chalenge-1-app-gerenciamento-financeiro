@@ -1,6 +1,5 @@
 'use client'
 import Image from "next/image";
-import cn from "classnames";
 
 import LogoWhite from "@/app/images/LogoWhite.svg";
 import Intagram from "@/app/images/Instagram.svg";
@@ -11,10 +10,6 @@ import styles from "./FooterHomePage.module.scss"
 
 
 export default function FooterHomePage() {
-
-  const goToInit = () => {
-    window.location.href = "/inicio";
-  }
 
   return (
     <div id='footerContainer' className={styles.footerContainer}>
@@ -33,7 +28,7 @@ export default function FooterHomePage() {
       </div>
       
       <div className={styles.logoLinks}>
-        <span className={styles.linkHeader}>Desenvolvido por Alura</span>
+        <span className={styles.linkHeader}>Desenvolvido por André Câmara</span>
         <span>
           <Image
             src={LogoWhite}
@@ -45,21 +40,21 @@ export default function FooterHomePage() {
           <span>
             <Image
               src={Intagram}
-              alt="logo"
+              alt="Instagram"
               className={styles.logo}
             />
           </span>
           <span>
             <Image
               src={WhatsApp}
-              alt="logo"
+              alt="WhatsApp"
               className={styles.logo}
             />
           </span>
           <span>
             <Image
               src={Youtube}
-              alt="logo"
+              alt="Youtube"
               className={styles.logo}
             />
           </span>

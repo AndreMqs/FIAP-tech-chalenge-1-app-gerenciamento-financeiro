@@ -70,7 +70,8 @@
         &:hover {
           color: #47A138;
           background-color: #000000;
-          border: none;
+          border: 1px solid #47A138;
+          transition: 0.3s;
         }
       }
       
@@ -86,7 +87,8 @@
         
         &:hover {
           color: #47A138;
-          border: none;
+          border: 1px solid #000000;
+          transition: 0.3s;
         }
       }
     }

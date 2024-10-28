@@ -1,5 +1,6 @@
-import FooterHomePage from '../FooterHomePage/FooterHomePage';
-import HeaderHomePage from '../HeaderHomePage/HeaderHomePage';
+import ContentHomePage from './ContentHomePage/ContentHomePage';
+import FooterHomePage from './FooterHomePage/FooterHomePage';
+import HeaderHomePage from './HeaderHomePage/HeaderHomePage';
 
 import styles from "./HomePage.module.scss"
 
@@ -10,6 +11,7 @@ export default function HomePage(props: HomePageProps) {
   return (
     <div id='homePageMainContainer' className={styles.homePageMainContainer}>
       <HeaderHomePage />
+      <ContentHomePage />
       <FooterHomePage />
     </div>
   );
