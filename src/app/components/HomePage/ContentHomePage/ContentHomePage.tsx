@@ -1,5 +1,4 @@
 'use client'
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import cn from "classnames";
 
@@ -13,35 +12,24 @@ import styles from "./ContentHomePage.module.scss"
 
 
 export default function ContentHomePage() {
-  const [screenWidth, setScreenWidth] = useState(0);
-
-  const handleWindowResize = () => {
-    setScreenWidth(window.innerWidth);
-  }
-
-  useEffect(() => {
-    handleWindowResize();
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
 
   const goToInit = () => {
     window.location.href = "/inicio";
   }
 
   const shouldRenderButtons = () => {
-    return screenWidth <= 425;
+    return window.screen.width <= 425;
   }
 
   const getImgSize = () => {
-    if (screenWidth >= 768) {
+    if (window.screen.width >= 768) {
       return {
         height: 412,
         width: 660
       }
     }
 
-    if (screenWidth > 425) {
+    if (window.screen.width > 425) {
       return {
         height: 375,
         width: 600
