@@ -11,7 +11,8 @@ import styles from "./MainPage.module.scss"
 
 export default function MainPage(props: MainPageProps) {
   const user = {
-    name: 'Joana'
+    name: 'Joana',
+    money: 25000000,
   };
 
   const menuItems = [
@@ -42,6 +43,7 @@ export default function MainPage(props: MainPageProps) {
       <div id='middleContentContainer' className={styles.middleContentContainer}>
         <Summary
           username={user.name}
+          money={user.money}
         />
         <NewTransaction/>
       </div>

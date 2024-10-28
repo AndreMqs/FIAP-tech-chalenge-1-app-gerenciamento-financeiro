@@ -60,10 +60,9 @@
     top: 0;
     left: 0;
     background-color: #E4EDE3;
-    height: 256px;
-    width: 172px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 16px;
   }
 
   & .closeButton {
