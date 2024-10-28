@@ -1,10 +1,11 @@
 import cn from "classnames";
+
 import { TextField as MuiTextField, TextFieldVariants} from "@mui/material";
 
 import styles from "./TextField.module.scss"
 
 
-export default function TextField(props: SingleStatementProps) {
+export default function TextField(props: TextFieldProps) {
   const {value, variant, style} = props;
   
   return (
@@ -18,7 +19,7 @@ export default function TextField(props: SingleStatementProps) {
 }
 
 
-interface SingleStatementProps {
+interface TextFieldProps {
   value?: string;
   variant?: TextFieldVariants;
   style?: any;
