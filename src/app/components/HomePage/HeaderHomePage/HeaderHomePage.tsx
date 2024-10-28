@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import cn from "classnames";
 
@@ -12,13 +13,24 @@ import styles from "./HeaderHomePage.module.scss"
 
 
 export default function HeaderHomePage() {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  const handleWindowResize = () => {
+    setScreenWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
 
   const goToInit = () => {
     window.location.href = "/inicio";
   }
 
   const getLogo = () => {
-    if (window.screen.width > 768 || window.screen.width <= 425) {
+    if (screenWidth > 768 || screenWidth <= 425) {
       return Logo;
     }
 
@@ -26,7 +38,7 @@ export default function HeaderHomePage() {
   }
 
   const getBtnOpenAccountText = () => {
-    if (window.screen.width > 768) {
+    if (screenWidth > 768) {
       return 'Abrir minha conta';
     }
 
@@ -73,7 +85,7 @@ export default function HeaderHomePage() {
   }
 
   const renderHeader = () => {
-    if (window.screen.width <= 425) {
+    if (screenWidth <= 425) {
       return renderMobileHeader();
     }
 
