@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 import IconButton from '@mui/material/IconButton';
 
 import Delete from "@/app/images/Delete.svg";
@@ -10,7 +8,6 @@ import Image from 'next/image';
 import { getStatementByMonth } from '@/app/utils/statementUtils';
 
 import styles from "./Statement.module.scss"
-import globalStyles from "../../globals.module.scss";
 
 
 export default function Statement(props: StatementProps) {
@@ -65,7 +62,7 @@ export default function Statement(props: StatementProps) {
   ]
 
   return (
-    <div id='statement' className={cn(styles.statementContainer, globalStyles.borderTest)}>
+    <div id='statement' className={styles.statementContainer}>
       <div className={styles.statementHeader}>
         <span className={styles.headerTitle}>Extrato</span>
         <span className={styles.headerButtonsContainer}>

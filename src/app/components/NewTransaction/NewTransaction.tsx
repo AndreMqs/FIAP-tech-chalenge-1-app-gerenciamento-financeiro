@@ -1,10 +1,9 @@
 'use client'
-import cn from 'classnames';
+import { useState } from 'react';
+
+import Select from '../Select/Select';
 
 import styles from "./NewTransaction.module.scss"
-import globalStyles from "../../globals.module.scss";
-import Select from '../Select/Select';
-import { useState } from 'react';
 
 
 export default function NewTransaction(props: NewTransactionProps) {
@@ -19,7 +18,7 @@ export default function NewTransaction(props: NewTransactionProps) {
 
 
   return (
-    <div id='newTransaction' className={cn(styles.transactionContainer, globalStyles.borderTest)}>
+    <div id='newTransaction' className={styles.transactionContainer}>
       <div className={styles.transactionContent}>
         <span className={styles.title}>Nova transação</span>
         <span>

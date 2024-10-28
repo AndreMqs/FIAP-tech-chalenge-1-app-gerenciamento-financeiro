@@ -10,7 +10,6 @@ import Avatar from "@/app/images/Avatar.svg";
 import Fechar from "@/app/images/Fechar.svg";
 
 import styles from "./Header.module.scss"
-import globalStyles from "../../globals.module.scss";
 
 
 export default function Header(props: HeaderProps) {
@@ -69,7 +68,7 @@ export default function Header(props: HeaderProps) {
   }
 
   return (
-    <div id='header' className={cn(styles.header, globalStyles.borderTest)}>
+    <div id='header' className={styles.header}>
       <div className={styles.headerGrid}>
         {getHeader()}
       </div>

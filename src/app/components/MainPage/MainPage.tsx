@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import { useCallback } from 'react';
 
 import Header from '../Header/Header';
@@ -11,7 +10,9 @@ import styles from "./MainPage.module.scss"
 
 
 export default function MainPage(props: MainPageProps) {
-  const {} = props;
+  const user = {
+    name: 'Joana'
+  };
 
   const menuItems = [
     {
@@ -38,17 +39,19 @@ export default function MainPage(props: MainPageProps) {
 
   const renderMiddleContent = useCallback(() => {
     return (
-      <div id='middleContentContainer' className={cn(styles.middleContentContainer, styles.borderTest)}>
-        <Summary/>
+      <div id='middleContentContainer' className={styles.middleContentContainer}>
+        <Summary
+          username={user.name}
+        />
         <NewTransaction/>
       </div>
     );
   }, [styles]);
 
   return (
-    <div id='mainContainer' className={cn(styles.flexColumnCenterContainer)}>
+    <div id='mainContainer' className={styles.flexColumnCenterContainer}>
       <Header items={menuItems}/>
-      <div id='mainContentContainer' className={cn(styles.mainContentContainer, styles.borderTest)}>
+      <div id='mainContentContainer' className={styles.mainContentContainer}>
         <Menu items={menuItems}/>
         {renderMiddleContent()}
         <Statement />

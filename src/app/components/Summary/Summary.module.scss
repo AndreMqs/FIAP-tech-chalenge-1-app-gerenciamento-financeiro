@@ -1,6 +1,9 @@
 .summaryContainer {
   height: 402px;
   margin-bottom: 24px;
+  background-color: #004D61;
+  border-radius: 8px;
+  padding: 24px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -9,5 +12,13 @@
 
   @media (max-width: 425px) {
     margin-bottom: 24px;
+  }
+
+  & .userName {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30.26px;
+    text-align: left;
+    color: #fff;
   }
 }
