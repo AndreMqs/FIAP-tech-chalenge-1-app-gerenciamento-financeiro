@@ -2,8 +2,8 @@ import cn from 'classnames';
 
 import IconButton from '@mui/material/IconButton';
 
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Delete from "@/app/images/Delete.svg";
+import Edit from "@/app/images/Edit.svg";
 import StatementList from './StatementList/StatementList';
 import Image from 'next/image';
 
@@ -70,10 +70,20 @@ export default function Statement(props: StatementProps) {
         <span className={styles.headerTitle}>Extrato</span>
         <span className={styles.headerButtonsContainer}>
           <IconButton className={styles.headerButton}>
-            <EditIcon />
+            <Image 
+              src={Edit}
+              alt="Editar"
+              height={22}
+              width={22}
+            />
           </IconButton>
           <IconButton className={styles.headerButton}>
-            <DeleteIcon />
+            <Image 
+              src={Delete}
+              alt="Remover"
+              height={40}
+              width={40}
+            />
           </IconButton>
         </span>
       </div>

@@ -31,15 +31,16 @@
   width: 40px;
   height: 40px;
   margin-left: 15px;
-  background-color: #004D61;
-  color: #fff;
+  background-color: #004D61 !important;
+  color: #fff !important;
 
   &:hover {
-    background-color: #DEE9EA;
-    color: #004D61;
+    background-color: #DEE9EA !important;
+    color: #004D61 !important;
   }
 }
 
 .headerButtonsContainer {
   display: flex;
+  gap: 16px;
 }
