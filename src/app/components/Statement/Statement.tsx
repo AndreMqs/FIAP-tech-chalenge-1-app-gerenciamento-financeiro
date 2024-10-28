@@ -5,6 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import StatementList from './StatementList/StatementList';
+import Image from 'next/image';
 
 import { getStatementByMonth } from '@/app/utils/statementUtils';
 
@@ -67,7 +68,7 @@ export default function Statement(props: StatementProps) {
     <div id='statement' className={cn(styles.statementContainer, globalStyles.borderTest)}>
       <div className={styles.statementHeader}>
         <span className={styles.headerTitle}>Extrato</span>
-        <span>
+        <span className={styles.headerButtonsContainer}>
           <IconButton className={styles.headerButton}>
             <EditIcon />
           </IconButton>

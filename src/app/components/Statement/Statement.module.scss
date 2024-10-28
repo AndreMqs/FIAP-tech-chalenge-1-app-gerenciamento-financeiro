@@ -7,7 +7,7 @@
   border-radius: 8px;
   overflow: auto;
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 }
@@ -38,4 +38,8 @@
     background-color: #DEE9EA;
     color: #004D61;
   }
+}
+
+.headerButtonsContainer {
+  display: flex;
 }

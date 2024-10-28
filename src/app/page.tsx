@@ -1,7 +1,7 @@
-import MainPage from "./components/MainPage/MainPage";
+import HomePage from "./components/HomePage/HomePage";
 
 export default function Home() {
   return (
-    <MainPage/>
+    <HomePage />
   );
 }
