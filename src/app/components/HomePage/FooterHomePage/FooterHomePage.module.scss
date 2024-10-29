@@ -6,6 +6,8 @@
   align-items: center;
   height: 224px;
   padding-top: 43px;
+  position: relative;
+  z-index: 10;
 
   @media (max-width: 768px) {
     padding: 24px 60px;
