@@ -1,9 +1,11 @@
-import IconButton from '@mui/material/IconButton';
+'use client'
+import { useState } from 'react';
+import Image from 'next/image';
 
+import IconButton from '@mui/material/IconButton';
 import Delete from "@/app/images/Delete.svg";
 import Edit from "@/app/images/Edit.svg";
 import StatementList from './StatementList/StatementList';
-import Image from 'next/image';
 
 import { getStatementByMonth } from '@/app/utils/statementUtils';
 
@@ -13,11 +15,13 @@ import styles from "./Statement.module.scss"
 export default function Statement(props: StatementProps) {
   const {} = props;
 
+  const [isEditing, setIsEditing] = useState(false);
+
   const statementsList = [
     {
-      type: 'Depósito',
+      type: 'Transferência',
       date: new Date('2024-01-15'),
-      moneyValue: 150,
+      moneyValue: -150,
     },
     {
       type: 'Depósito',
@@ -66,7 +70,7 @@ export default function Statement(props: StatementProps) {
       <div className={styles.statementHeader}>
         <span className={styles.headerTitle}>Extrato</span>
         <span className={styles.headerButtonsContainer}>
-          <IconButton className={styles.headerButton}>
+          <IconButton className={styles.headerButton} onClick={() => setIsEditing(!isEditing)}>
             <Image 
               src={Edit}
               alt="Editar"
@@ -87,7 +91,7 @@ export default function Statement(props: StatementProps) {
       <div className={styles.statementsListContainer}>
         <StatementList 
           statementsByMonth={getStatementByMonth(statementsList)}
-          isEditing={true}
+          isEditing={isEditing}
         />
       </div>
     </div>

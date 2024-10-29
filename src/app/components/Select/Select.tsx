@@ -1,10 +1,7 @@
 'use client'
-import cn from "classnames";
 import { useEffect, useState } from "react";
 
-import { MenuItem, Select as MuiSelect, SelectChangeEvent, TextFieldVariants} from "@mui/material";
-
-import styles from "./TextField.module.scss"
+import styles from "./Select.module.scss"
 
 
 export default function Select(props: SelectProps) {
@@ -16,18 +13,20 @@ export default function Select(props: SelectProps) {
   }, [value]);
   
   return (
-    <MuiSelect
+    <select
+      className={styles.transactionSelect}
       value={selectValue}
       onChange={(e) => onChange(e.target.value)}
-      displayEmpty
-      placeholder={placeholder}
     >
+      <option className={styles.transactionOption} disabled selected>
+        Selecione o tipo de transação
+      </option>
       {options.map(option => 
-        <MenuItem key={option} value={option}>
-          <em>{option}</em>
-        </MenuItem>
+        <option key={option} value={option}>
+          {option}
+        </option>
       )}
-    </MuiSelect>
+    </select>
   );
 }
 
