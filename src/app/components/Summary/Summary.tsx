@@ -7,9 +7,9 @@ import Eye from "@/app/images/Eye.svg";
 import Saldo from "@/app/images/SaldoBackground.svg";
 
 import { parseDateString } from "@/app/utils/dateUtils";
+import { parseMoneyValue } from "@/app/utils/stringUtils";
 
 import styles from "./Summary.module.scss"
-import { parseMoneyValue } from "@/app/utils/stringUtils";
 
 
 export default function Summary(props: SummaryProps) {

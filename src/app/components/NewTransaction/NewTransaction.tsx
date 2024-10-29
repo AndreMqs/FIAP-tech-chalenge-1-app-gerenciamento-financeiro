@@ -2,6 +2,10 @@
 import { useState } from 'react';
 
 import Select from '../Select/Select';
+import Image from 'next/image';
+
+import TransactionBG from "@/app/images/TransactionBackground.svg";
+
 
 import styles from "./NewTransaction.module.scss"
 
@@ -15,6 +19,19 @@ export default function NewTransaction(props: NewTransactionProps) {
   
   const {} = props;
   const [selectedValue, setSelectValue] = useState<string|undefined>();
+
+  const renderImage = () => {
+    return (
+      <div className={styles.transactionImgContainer}>
+        <Image
+          src={TransactionBG}
+          alt=""
+          height={231}
+          width={window.screen.width <= 425 ? 231 : 327}
+        />
+      </div>
+    );
+  }
 
 
   return (
@@ -32,7 +49,7 @@ export default function NewTransaction(props: NewTransactionProps) {
         <span>Valor</span>
         <span>0,00</span>
         <span>Concluir Transação</span>
-
+        {renderImage()}
       </div>
     </div>
   );
