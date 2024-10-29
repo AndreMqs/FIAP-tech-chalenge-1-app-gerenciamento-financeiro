@@ -1,8 +1,5 @@
-.relativeContainer {
-  position: relative;
-}
-
 .summaryContainer {
+  position: relative;
   height: 402px;
   margin-bottom: 24px;
   background-color: #004D61;
@@ -19,6 +16,8 @@
 
   @media (max-width: 425px) {
     margin-bottom: 24px;
+    flex-direction: column;
+    height: 100%;
   }
 
   & .summaryTitle {
@@ -111,5 +110,16 @@
   position: absolute;
   left: 32px;
   bottom: 24px;
+
+  @media (max-width: 425px) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    margin-top: 128px;
+    margin-bottom: 32px;
+  }
 }
 

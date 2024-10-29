@@ -78,11 +78,9 @@ export default function Summary(props: SummaryProps) {
   }
 
   return (
-    <div id='summary' className={styles.relativeContainer}>
-      <div className={styles.summaryContainer}>
-        {renderTitle()}
-        {renderMoney()}
-      </div>
+    <div id='summary' className={styles.summaryContainer}>
+      {renderTitle()}
+      {renderMoney()}
       {renderImage()}
     </div>
   );
