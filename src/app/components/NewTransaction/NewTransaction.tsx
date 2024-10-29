@@ -4,8 +4,6 @@ import { useState } from 'react';
 import Select from '../Select/Select';
 import Image from 'next/image';
 
-import TransactionBG from "@/app/images/TransactionBackground.svg";
-
 import { parseMoneyValue } from '@/app/utils/stringUtils';
 
 import styles from "./NewTransaction.module.scss"
@@ -22,19 +20,6 @@ export default function NewTransaction(props: NewTransactionProps) {
   const [selectedValue, setSelectValue] = useState<string|undefined>();
   const [inputValue, setInputValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-
-  const renderImage = () => {
-    return (
-      <div className={styles.transactionImgContainer}>
-        <Image
-          src={TransactionBG}
-          alt=""
-          height={231}
-          width={window.screen.width <= 425 ? 231 : 327}
-        />
-      </div>
-    );
-  }
 
   const getButtonText = () => {
     return window.screen.width <= 425 ? 'Concluir' : 'Concluir transação';
@@ -83,7 +68,6 @@ export default function NewTransaction(props: NewTransactionProps) {
           />
         </span>
         <button className={styles.finishTransaction}>{getButtonText()}</button>
-        {renderImage()}
       </div>
     </div>
   );

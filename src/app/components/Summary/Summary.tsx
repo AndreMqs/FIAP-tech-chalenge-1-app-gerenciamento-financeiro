@@ -4,7 +4,6 @@ import cn from "classnames";
 import Image from "next/image";
 
 import Eye from "@/app/images/Eye.svg";
-import Saldo from "@/app/images/SaldoBackground.svg";
 
 import { parseDateString } from "@/app/utils/dateUtils";
 import { parseMoneyValue } from "@/app/utils/stringUtils";
@@ -66,22 +65,10 @@ export default function Summary(props: SummaryProps) {
     );
   }
 
-  const renderImage = () => {
-    return (
-      <div className={styles.saldoImgContainer}>
-        <Image 
-          src={Saldo}
-          alt=""
-        />
-      </div>
-    );
-  }
-
   return (
     <div id='summary' className={styles.summaryContainer}>
       {renderTitle()}
       {renderMoney()}
-      {renderImage()}
     </div>
   );
 }

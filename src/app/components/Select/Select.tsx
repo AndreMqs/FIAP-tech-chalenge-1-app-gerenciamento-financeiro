@@ -19,10 +19,10 @@ export default function Select(props: SelectProps) {
       onChange={(e) => onChange(e.target.value)}
     >
       <option className={styles.transactionOption} disabled selected>
-        Selecione o tipo de transação
+        {placeholder}
       </option>
       {options.map(option => 
-        <option key={option} value={option}>
+        <option className={styles.transactionOption} key={option} value={option}>
           {option}
         </option>
       )}
