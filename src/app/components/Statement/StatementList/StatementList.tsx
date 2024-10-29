@@ -1,7 +1,7 @@
-import TextField from "../../TextField/TextField";
+'use client'
 import { capitalize } from "lodash";
 
-import { parseMoneyValue } from "@/app/utils/stringUtils";
+import SingleStatement from "../SingleStatement/SingleStatement";
 
 import { Statement } from "@/app/models/Statement";
 
@@ -13,20 +13,8 @@ export default function StatementList(props: SingleStatementProps) {
 
   const renderSingleStatement = (month: string) => {
     return (
-      statementsByMonth.get(month)?.map(({type, date, moneyValue}, index) =>
-        <div 
-          id='singleStatement' 
-          className={styles.singleStatementContainer}
-          key={index}
-        >
-          <span className={styles.typeAndDateContainer}>
-            <span className={styles.type}>{type}</span>
-            <span className={styles.date}>{date.toLocaleDateString()}</span>
-          </span>
-
-          {!isEditing && <span className={styles.moneyValue}>{parseMoneyValue(moneyValue)}</span>}
-          {isEditing && <TextField variant="standard" value={parseMoneyValue(moneyValue)}/>}
-        </div>
+      statementsByMonth.get(month)?.map((statement, index) =>
+        <SingleStatement statement={statement} isEditing={isEditing} key={index}/>
       )
     );
   }

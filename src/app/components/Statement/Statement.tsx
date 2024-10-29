@@ -85,10 +85,10 @@ export default function Statement(props: StatementProps) {
         </span>
       </div>
       <div className={styles.statementsListContainer}>
-      <StatementList 
-        statementsByMonth={getStatementByMonth(statementsList)}
-        isEditing={true}
-      />
+        <StatementList 
+          statementsByMonth={getStatementByMonth(statementsList)}
+          isEditing={true}
+        />
       </div>
     </div>
   );

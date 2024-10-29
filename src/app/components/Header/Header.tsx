@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import { isNil } from 'lodash';
 import cn from 'classnames';
 import Image from 'next/image';
 
@@ -60,7 +61,7 @@ export default function Header(props: HeaderProps) {
   }
 
   const getHeader = () => {
-    if (window.screen.width <= 425) {
+    if (!isNil(window) && window.screen.width <= 425) {
       return renderMobileHeader();
     }
 
