@@ -9,11 +9,14 @@
   overflow-y: auto;
   
   @media (max-width: 768px) {
+    height: 100%;
     padding: 40px 60px;
   }
   
   @media (max-width: 425px) {
     padding: 40px 24px;
+    height: 100%;
+    overflow: hidden;
   }
 
   & .content {
