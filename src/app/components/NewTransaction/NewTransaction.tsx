@@ -2,7 +2,6 @@
 import { useState } from 'react';
 
 import Select from '../Select/Select';
-import Image from 'next/image';
 
 import { parseMoneyValue } from '@/app/utils/stringUtils';
 
@@ -17,12 +16,14 @@ export default function NewTransaction(props: NewTransactionProps) {
   ];
   
   const {} = props;
-  const [selectedValue, setSelectValue] = useState<string|undefined>();
+  const [selectedValue, setSelectValue] = useState<string>('');
   const [inputValue, setInputValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
   const getButtonText = () => {
-    return window.screen.width <= 425 ? 'Concluir' : 'Concluir transação';
+    if (typeof window !== "undefined") {
+      return window.screen.width <= 425 ? 'Concluir' : 'Concluir transação';
+    }
   }
 
   const getInputValue = () => {

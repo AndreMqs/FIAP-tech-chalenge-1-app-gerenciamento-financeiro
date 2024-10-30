@@ -50,6 +50,10 @@
   .selectContainer {
     width: 355px;
     height: 48px;
+
+    @media (max-width: 425px) {
+      width: 100%;
+    }
   }
 
   .inputContainer {

@@ -14,31 +14,37 @@ import styles from "./ContentHomePage.module.scss"
 export default function ContentHomePage() {
 
   const goToInit = () => {
-    window.location.href = "/inicio";
+    if (typeof window !== "undefined") {
+      window.location.href = "/inicio";
+    }
   }
 
   const shouldRenderButtons = () => {
-    return window.screen.width <= 425;
+    if (typeof window !== "undefined") {
+      return window.screen.width <= 425;
+    }
   }
 
   const getImgSize = () => {
-    if (window.screen.width >= 768) {
-      return {
-        height: 412,
-        width: 660
+    if (typeof window !== "undefined") {
+      if (window.screen.width >= 768) {
+        return {
+          height: 412,
+          width: 660
+        }
       }
-    }
-
-    if (window.screen.width > 425) {
-      return {
-        height: 375,
-        width: 600
+  
+      if (window.screen.width > 425) {
+        return {
+          height: 375,
+          width: 600
+        }
       }
-    }
-
-    return {
-      height: 194,
-      width: 312
+  
+      return {
+        height: 194,
+        width: 312
+      }
     }
   }
 

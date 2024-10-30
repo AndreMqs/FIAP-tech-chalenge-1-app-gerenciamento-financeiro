@@ -61,7 +61,7 @@ export default function Header(props: HeaderProps) {
   }
 
   const getHeader = () => {
-    if (!isNil(window) && window.screen.width <= 425) {
+    if (typeof window !== "undefined" && window.screen.width <= 425) {
       return renderMobileHeader();
     }
 
