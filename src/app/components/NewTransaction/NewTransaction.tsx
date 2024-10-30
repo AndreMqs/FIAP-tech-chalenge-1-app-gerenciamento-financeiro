@@ -10,9 +10,8 @@ import styles from "./NewTransaction.module.scss"
 
 export default function NewTransaction(props: NewTransactionProps) {
   const transactionOptions = [
-    'Câmbio de Moeda',
-    'DOC/TED',
-    'Empréstimo e Financiamento',
+    'Depósito',
+    'Transferência',
   ];
   
   const {} = props;
