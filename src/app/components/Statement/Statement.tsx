@@ -1,26 +1,27 @@
-import cn from 'classnames';
+'use client'
+import { useState } from 'react';
+import Image from 'next/image';
 
 import IconButton from '@mui/material/IconButton';
-
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Delete from "@/app/images/Delete.svg";
+import Edit from "@/app/images/Edit.svg";
 import StatementList from './StatementList/StatementList';
-import Image from 'next/image';
 
 import { getStatementByMonth } from '@/app/utils/statementUtils';
 
 import styles from "./Statement.module.scss"
-import globalStyles from "../../globals.module.scss";
 
 
 export default function Statement(props: StatementProps) {
   const {} = props;
 
+  const [isEditing, setIsEditing] = useState(false);
+
   const statementsList = [
     {
-      type: 'Depósito',
+      type: 'Transferência',
       date: new Date('2024-01-15'),
-      moneyValue: 150,
+      moneyValue: -150,
     },
     {
       type: 'Depósito',
@@ -65,23 +66,33 @@ export default function Statement(props: StatementProps) {
   ]
 
   return (
-    <div id='statement' className={cn(styles.statementContainer, globalStyles.borderTest)}>
+    <div id='statement' className={styles.statementContainer}>
       <div className={styles.statementHeader}>
         <span className={styles.headerTitle}>Extrato</span>
         <span className={styles.headerButtonsContainer}>
-          <IconButton className={styles.headerButton}>
-            <EditIcon />
+          <IconButton className={styles.headerButton} onClick={() => setIsEditing(!isEditing)}>
+            <Image 
+              src={Edit}
+              alt="Editar"
+              height={22}
+              width={22}
+            />
           </IconButton>
           <IconButton className={styles.headerButton}>
-            <DeleteIcon />
+            <Image 
+              src={Delete}
+              alt="Remover"
+              height={40}
+              width={40}
+            />
           </IconButton>
         </span>
       </div>
       <div className={styles.statementsListContainer}>
-      <StatementList 
-        statementsByMonth={getStatementByMonth(statementsList)}
-        isEditing={true}
-      />
+        <StatementList 
+          statementsByMonth={getStatementByMonth(statementsList)}
+          isEditing={isEditing}
+        />
       </div>
     </div>
   );

@@ -14,19 +14,23 @@ import styles from "./HeaderHomePage.module.scss"
 export default function HeaderHomePage() {
 
   const goToInit = () => {
-    window.location.href = "/inicio";
+    if (typeof window !== "undefined") {
+      window.location.href = "/inicio";
+    }
   }
 
   const getLogo = () => {
-    if (window.screen.width > 768 || window.screen.width <= 425) {
-      return Logo;
+    if (typeof window !== "undefined") {
+      if (window.screen.width > 768 || window.screen.width <= 425) {
+        return Logo;
+      }
     }
 
     return LogoIcon;
   }
 
   const getBtnOpenAccountText = () => {
-    if (window.screen.width > 768) {
+    if (typeof window !== "undefined" && window.screen.width > 768) {
       return 'Abrir minha conta';
     }
 
@@ -73,7 +77,7 @@ export default function HeaderHomePage() {
   }
 
   const renderHeader = () => {
-    if (window.screen.width <= 425) {
+    if (typeof window !== "undefined" && window.screen.width <= 425) {
       return renderMobileHeader();
     }
 

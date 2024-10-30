@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import { useCallback } from 'react';
 
 import Header from '../Header/Header';
@@ -11,22 +10,51 @@ import styles from "./MainPage.module.scss"
 
 
 export default function MainPage(props: MainPageProps) {
-  const {} = props;
+  const user = {
+    name: 'Joana',
+    money: 2500,
+  };
+
+  const menuItems = [
+    {
+      title: 'Início',
+      route: '/inicio',
+      selected: true,
+    },
+    {
+      title: 'Transferências',
+      route: '/inicio',
+      selected: false,
+    },
+    {
+      title: 'Investimentos',
+      route: '/inicio',
+      selected: false,
+    },
+    {
+      title: 'Outros serviços',
+      route: '/home',
+      selected: false,
+    },
+  ];
 
   const renderMiddleContent = useCallback(() => {
     return (
-      <div id='middleContentContainer' className={cn(styles.middleContentContainer, styles.borderTest)}>
-        <Summary/>
+      <div id='middleContentContainer' className={styles.middleContentContainer}>
+        <Summary
+          username={user.name}
+          money={user.money}
+        />
         <NewTransaction/>
       </div>
     );
   }, [styles]);
 
   return (
-    <div id='mainContainer' className={cn(styles.flexColumnCenterContainer)}>
-      <Header/>
-      <div id='mainContentContainer' className={cn(styles.mainContentContainer, styles.borderTest)}>
-        <Menu />
+    <div id='mainContainer' className={styles.flexColumnCenterContainer}>
+      <Header items={menuItems}/>
+      <div id='mainContentContainer' className={styles.mainContentContainer}>
+        <Menu items={menuItems}/>
         {renderMiddleContent()}
         <Statement />
       </div>
