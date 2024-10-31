@@ -1,4 +1,3 @@
-'use client'
 import dynamic from 'next/dynamic';
 
 const HeaderHomePage = dynamic(() => import('./HeaderHomePage/HeaderHomePage'), { ssr: false });
