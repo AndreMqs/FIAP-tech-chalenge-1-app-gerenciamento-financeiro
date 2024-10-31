@@ -10,8 +10,9 @@ import styles from "./NewTransaction.module.scss"
 
 export default function NewTransaction(props: NewTransactionProps) {
   const transactionOptions = [
-    'Depósito',
-    'Transferência',
+    'Câmbio de Moeda',
+    'DOC/TED',
+    'Empréstimo e Financiamento',
   ];
   
   const {} = props;
@@ -20,9 +21,11 @@ export default function NewTransaction(props: NewTransactionProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   const getButtonText = () => {
-    if (typeof window !== "undefined") {
-      return window.screen.width <= 425 ? 'Concluir' : 'Concluir transação';
+    if (typeof window !== "undefined" && window.screen.width <= 425) {
+      return 'Concluir';
     }
+
+    return 'Concluir transação';
   }
 
   const getInputValue = () => {

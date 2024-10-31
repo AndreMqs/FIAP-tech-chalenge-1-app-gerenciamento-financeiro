@@ -52,6 +52,7 @@ export default function Select(props: SelectProps) {
       </MenuItem>
       {options.map((option) =>
         <MenuItem 
+          key={option}
           className={cn(styles.transactionOption, {[styles.selectedOption]: getIsSelectedOption(option)})} 
           value={option}
         >
