@@ -41,13 +41,12 @@ export default function HeaderHomePage() {
     return (
       <>
         <div className={styles.logoAndLinks}>
-          <a href="/home">
-            <Image
-              src={getLogo()}
-              alt="logo"
-              className={styles.logo}
-            />
-          </a>
+          <Image
+            src={getLogo()}
+            alt="logo"
+            className={styles.logo}
+            onClick={() => goToInit()}
+          />
           <div className={styles.links}>
             <a className={styles.link} href="">Sobre</a>
             <a className={styles.link} href="">Serviços</a>

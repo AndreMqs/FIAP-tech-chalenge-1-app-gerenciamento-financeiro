@@ -34,12 +34,10 @@
   line-height: 19.36px;
   text-align: center;
   
-  &:hover {
+  &:hover, &:focus-visible {
     font-weight: 700;
     background-color: #E4EDE3;
   }
-
-  
 
   &:disabled {
     font-weight: 400;

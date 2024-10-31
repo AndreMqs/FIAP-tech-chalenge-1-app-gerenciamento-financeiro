@@ -5,10 +5,18 @@
 
   @media (max-width: 768px) {
     height: auto;
+
+    @media (min-height: 1310px) {
+      height: 100%;
+    }
   }
   
   @media (max-width: 425px) {
     height: auto;
+
+    @media (min-height: 1920px) {
+      height: 100%;
+    }
   }
 
 }

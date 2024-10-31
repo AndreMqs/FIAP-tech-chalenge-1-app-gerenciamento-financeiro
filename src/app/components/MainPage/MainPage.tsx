@@ -1,9 +1,9 @@
-import { useCallback } from 'react';
+import dynamic from 'next/dynamic';
 
-import Header from '../Header/Header';
+const Header = dynamic(() => import('../Header/Header'), { ssr: false });
 import Menu from '../Menu/Menu';
 import Summary from '../Summary/Summary';
-import NewTransaction from '../NewTransaction/NewTransaction';
+const NewTransaction = dynamic(() => import('../NewTransaction/NewTransaction'), { ssr: false });
 import Statement from '../Statement/Statement';
 
 import styles from "./MainPage.module.scss"
@@ -12,7 +12,7 @@ import styles from "./MainPage.module.scss"
 export default function MainPage(props: MainPageProps) {
   const user = {
     name: 'Joana',
-    money: 2500,
+    money: 250000000000,
   };
 
   const menuItems = [
@@ -38,7 +38,7 @@ export default function MainPage(props: MainPageProps) {
     },
   ];
 
-  const renderMiddleContent = useCallback(() => {
+  const renderMiddleContent = () => {
     return (
       <div id='middleContentContainer' className={styles.middleContentContainer}>
         <Summary
@@ -48,7 +48,7 @@ export default function MainPage(props: MainPageProps) {
         <NewTransaction/>
       </div>
     );
-  }, [styles]);
+  };
 
   return (
     <div id='mainContainer' className={styles.flexColumnCenterContainer}>

@@ -11,8 +11,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={styles.global} lang="pt-br">
-      <body>{children}</body>
-    </html>
+    <>{children}</>
   )
 }

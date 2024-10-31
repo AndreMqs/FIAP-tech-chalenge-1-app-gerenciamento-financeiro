@@ -23,6 +23,8 @@ export default function ContentHomePage() {
     if (typeof window !== "undefined") {
       return window.screen.width <= 425;
     }
+
+    return false;
   }
 
   const getImgSize = () => {
@@ -41,10 +43,11 @@ export default function ContentHomePage() {
         }
       }
   
-      return {
-        height: 194,
-        width: 312
-      }
+    }
+
+    return {
+      height: 194,
+      width: 312
     }
   }
 
@@ -58,6 +61,7 @@ export default function ContentHomePage() {
           <Image 
             src={IlustracaoBanner}
             alt="Banner"
+            priority={true}
             {...getImgSize()}
           />
         </span>

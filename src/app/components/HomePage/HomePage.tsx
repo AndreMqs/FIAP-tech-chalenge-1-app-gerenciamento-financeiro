@@ -1,6 +1,9 @@
-import ContentHomePage from './ContentHomePage/ContentHomePage';
+'use client'
+import dynamic from 'next/dynamic';
+
+const HeaderHomePage = dynamic(() => import('./HeaderHomePage/HeaderHomePage'), { ssr: false });
+const ContentHomePage = dynamic(() => import('./ContentHomePage/ContentHomePage'), { ssr: false });
 import FooterHomePage from './FooterHomePage/FooterHomePage';
-import HeaderHomePage from './HeaderHomePage/HeaderHomePage';
 
 import styles from "./HomePage.module.scss"
 

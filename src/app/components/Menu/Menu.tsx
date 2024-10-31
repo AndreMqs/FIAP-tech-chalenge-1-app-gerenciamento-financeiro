@@ -9,7 +9,11 @@ export default function Menu(props: MenuProps) {
   return (
     <div id='menu' className={styles.menuContainer}>
       {items.map((item) => (
-        <a className={cn({[styles.itemSelected]: item.selected}, styles.menuItem)} href={item.route}>
+        <a 
+          key={item.title}
+          className={cn({[styles.itemSelected]: item.selected}, styles.menuItem)} 
+          href={item.route}
+        >
           {item.title}
         </a>
       ))}
