@@ -51,7 +51,11 @@ export default function Header(props: HeaderProps) {
             />
           </span>
           {items.map((item) => (
-            <a className={cn({[styles.itemSelected]: item.selected}, styles.menuItem)} href={item.route}>
+            <a 
+              key={item.title}
+              className={cn({[styles.itemSelected]: item.selected}, styles.menuItem)} 
+              href={item.route}
+            >
               {item.title}
             </a>
           ))}
