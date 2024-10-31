@@ -12,7 +12,7 @@ import styles from "./MainPage.module.scss"
 export default function MainPage(props: MainPageProps) {
   const user = {
     name: 'Joana',
-    money: 250000000000,
+    money: 25000000000,
   };
 
   const menuItems = [
