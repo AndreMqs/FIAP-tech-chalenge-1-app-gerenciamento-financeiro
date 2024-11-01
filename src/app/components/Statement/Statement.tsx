@@ -20,17 +20,17 @@ export default function Statement(props: StatementProps) {
   const statementsList = [
     {
       type: 'Transferência',
-      date: new Date('2024-01-15'),
+      date: new Date('2024-01-09'),
       moneyValue: -150,
     },
     {
       type: 'Depósito',
-      date: new Date('2024-01-15'),
+      date: new Date('2024-01-21'),
       moneyValue: 1501,
     },
     {
       type: 'Depósito',
-      date: new Date('2024-02-15'),
+      date: new Date('2024-02-17'),
       moneyValue: 1502,
     },
     {
@@ -40,27 +40,7 @@ export default function Statement(props: StatementProps) {
     },
     {
       type: 'Depósito',
-      date: new Date('2024-03-15'),
-      moneyValue: 1504,
-    },
-    {
-      type: 'Depósito',
-      date: new Date('2024-03-15'),
-      moneyValue: 1504,
-    },
-    {
-      type: 'Depósito',
-      date: new Date('2024-04-15'),
-      moneyValue: 1504,
-    },
-    {
-      type: 'Depósito',
-      date: new Date('2024-07-15'),
-      moneyValue: 1504,
-    },
-    {
-      type: 'Depósito',
-      date: new Date(),
+      date: new Date('2024-03-13'),
       moneyValue: 1504,
     },
   ]
