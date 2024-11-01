@@ -1,3 +1,15 @@
+## FIAP TECH CHALENGE 1
+
+Abaixo farei uma breve explicação de como rodar o projeto em ambiente de desenvolvimento, mas na sequência mantive o próprio README do next
+
+- Esse projeto foi criado utilizando o create-next-app com typescript
+- Para rodar o projeto, primeiro execute o comando npm install, para instalar todas as bibliotecas necessárias
+- Para rodar na máquina, usando um terminar, execute o comando `npm run dev`
+- Caso a tela não abra automaticamente, abra no seu navegador `http://localhost:3000/`
+- O projeto já deve estar rodando localmente
+
+## README NEXT
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
