@@ -3,7 +3,7 @@
 Abaixo farei uma breve explicação de como rodar o projeto em ambiente de desenvolvimento, mas na sequência mantive o próprio README do Next
 
 - Esse projeto foi criado utilizando o create-next-app com typescript
-- Para rodar o projeto, primeiro execute o comando npm `install`, para instalar todas as bibliotecas necessárias
+- Para rodar o projeto, primeiro execute o comando `npm install`, para instalar todas as bibliotecas necessárias
 - Para rodar na máquina, usando um terminal, execute o comando `npm run dev`
 - Caso a tela não abra automaticamente, abra no seu navegador `http://localhost:3000/`
 - O projeto já deve estar rodando localmente
