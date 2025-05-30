@@ -13,6 +13,7 @@ const Investments = dynamic(() => import("../Investments/Investments"), {
   ssr: false,
 });
 import Statement from "../Statement/Statement";
+const OtherServices = dynamic(() => import('../OtherServices/OtherServices'), { ssr: false });
 
 import styles from "./MainPage.module.scss";
 
@@ -51,7 +52,8 @@ export default function MainPage(props: MainPageProps) {
     switch (selectedMenu) {
       case "Investimentos":
         return <Investments />;
-
+      case "Outros serviços":
+        return <OtherServices />;
       default:
         return <NewTransaction />;
     }

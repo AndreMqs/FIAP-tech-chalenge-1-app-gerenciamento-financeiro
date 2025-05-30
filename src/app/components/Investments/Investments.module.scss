@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('../../images/BackgroundInvestimentDesktop.svg');
+  background-image: url('../../images/BackgroundDesktop.svg');
   background-position: bottom right;
   background-repeat: no-repeat;
   background-origin: content-box, padding-box;
@@ -17,13 +17,13 @@
   @media (max-width: 768px) {
     padding: 32px 24px;
     min-height: 350px;
-    background-image: url('../../images/BackgroundInvestmentsTablet.svg');
+    background-image: url('../../images/BackgroundTablet.svg');
   }
   @media (max-width: 425px) {
     padding: 24px 8px 350px 8px;
     min-height: 100px;
     background-position: 30% 95%;
-    background-image: url('../../images/BackgroundInvestmentsMobile.svg');
+    background-image: url('../../images/BackgroundMobile.svg');
   }
 }
 
