@@ -1,0 +1,17 @@
+<svg width="601" height="630" viewBox="0 0 601 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="630" rx="8" fill="#CBCBCB"/>
+<rect x="45" y="630" width="45" height="45" transform="rotate(-90 45 630)" fill="#D9D9D9"/>
+<rect x="45" y="585" width="45" height="45" transform="rotate(-90 45 585)" fill="#D9D9D9" fill-opacity="0.5"/>
+<rect x="90" y="585" width="45" height="45" transform="rotate(-90 90 585)" fill="#D9D9D9" fill-opacity="0.9"/>
+<rect x="45" y="540" width="45" height="45" transform="rotate(-90 45 540)" fill="#D9D9D9" fill-opacity="0.9"/>
+<rect x="45" y="495" width="45" height="45" transform="rotate(-90 45 495)" fill="#D9D9D9" fill-opacity="0.5"/>
+<rect y="495" width="45" height="45" transform="rotate(-90 0 495)" fill="#D9D9D9" fill-opacity="0.9"/>
+<rect x="132.465" y="630" width="45" height="45" transform="rotate(-90 132.465 630)" fill="#D9D9D9" fill-opacity="0.9"/>
+<rect x="555.465" width="45" height="45" transform="rotate(90 555.465 0)" fill="#D9D9D9"/>
+<rect x="555.465" y="45" width="45" height="45" transform="rotate(90 555.465 45)" fill="#D9D9D9" fill-opacity="0.5"/>
+<rect x="510.465" y="45" width="45" height="45" transform="rotate(90 510.465 45)" fill="#D9D9D9" fill-opacity="0.9"/>
+<rect x="555.465" y="90.0001" width="45" height="45" transform="rotate(90 555.465 90.0001)" fill="#D9D9D9" fill-opacity="0.9"/>
+<rect x="555.465" y="135" width="45" height="45" transform="rotate(90 555.465 135)" fill="#D9D9D9" fill-opacity="0.5"/>
+<rect x="600.465" y="135" width="45" height="45" transform="rotate(90 600.465 135)" fill="#D9D9D9" fill-opacity="0.9"/>
+<rect x="468" width="45" height="45" transform="rotate(90 468 0)" fill="#D9D9D9" fill-opacity="0.9"/>
+</svg>

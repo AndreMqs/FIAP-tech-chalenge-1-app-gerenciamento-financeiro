@@ -13,8 +13,8 @@ import Fechar from "@/app/images/Fechar.svg";
 import styles from "./Header.module.scss"
 
 
-export default function Header(props: HeaderProps) {
-  const {items} = props;
+export default function Header(props: HeaderProps & { onMenuClick?: (title: string) => void }) {
+  const {items, onMenuClick} = props;
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -55,6 +55,13 @@ export default function Header(props: HeaderProps) {
               key={item.title}
               className={cn({[styles.itemSelected]: item.selected}, styles.menuItem)} 
               href={item.route}
+              onClick={e => {
+                if (onMenuClick) {
+                  e.preventDefault();
+                  onMenuClick(item.title);
+                  setIsMenuOpen(false);
+                }
+              }}
             >
               {item.title}
             </a>
@@ -88,4 +95,5 @@ interface HeaderProps {
     route: string;
     selected: boolean;
   }[];
+  // onMenuClick?: (title: string) => void; // agora aceito via interseção
 }

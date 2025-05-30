@@ -37,7 +37,7 @@ export default function SingleStatement(props: SingleStatementProps) {
     >
       <span className={styles.typeAndDateContainer}>
         <span className={styles.type}>{type}</span>
-        <span className={styles.date}>{date.toLocaleDateString()}</span>
+        <span className={styles.date}>{date.toLocaleDateString('pt-BR')}</span>
       </span>
 
       <input 
