@@ -1,7 +1,6 @@
 import styles from './MyCards.module.scss';
 import Image from 'next/image';
-import CardPhysical from '@/app/images/CardBlue.svg';
-import CardDigital from '@/app/images/CardGray.png';
+import { cardsMock } from '@/app/services/cardsMock';
 
 export default function MyCards({ onBack }: { onBack: () => void }) {
   return (
@@ -10,28 +9,19 @@ export default function MyCards({ onBack }: { onBack: () => void }) {
         <button className={styles.backButton} onClick={onBack} aria-label="Voltar">←</button>
         Meus cartões
       </span>
-      <div className={styles.section}>
-        <span className={styles.sectionTitle}>Cartão físico</span>
-        <div className={styles.cardRow}>
-          <Image src={CardPhysical} alt="Cartão físico" className={styles.cardImage} />
-          <div className={styles.cardActions}>
-            <button className={styles.configButton}>Configurar</button>
-            <button className={styles.blockButton}>Bloquear</button>
-            <span className={styles.cardFunction}>Função: Débito/Crédito</span>
+      {cardsMock.map((card, idx) => (
+        <div className={styles.section} key={card.type}>
+          <span className={styles.sectionTitle}>{`Cartão ${card.type}`}</span>
+          <div className={styles.cardRow}>
+            <Image src={card.image} alt={`Cartão ${card.type}`} className={styles.cardImage} />
+            <div className={styles.cardActions}>
+              <button className={styles.configButton}>Configurar</button>
+              <button className={styles.blockButton}>Bloquear</button>
+              <span className={styles.cardFunction}>{`Função: ${card.function}`}</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.section}>
-        <span className={styles.sectionTitle}>Cartão digital</span>
-        <div className={styles.cardRow}>
-          <Image src={CardDigital} alt="Cartão digital" className={styles.cardImage} />
-          <div className={styles.cardActions}>
-            <button className={styles.configButton}>Configurar</button>
-            <button className={styles.blockButton}>Bloquear</button>
-            <span className={styles.cardFunction}>Função: Débito</span>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 } 

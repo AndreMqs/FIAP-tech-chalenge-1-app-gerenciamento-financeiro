@@ -1,18 +1,13 @@
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 import styles from './Investments.module.scss';
 import { useEffect, useState } from 'react';
-
-const data = [
-  { name: 'Fundos de investimento', value: 20000, color: '#1976d2' },
-  { name: 'Tesouro Direto', value: 10000, color: '#8e24aa' },
-  { name: 'Previdência Privada', value: 8000, color: '#ff7043' },
-  { name: 'Bolsa de Valores', value: 12000, color: '#ffb300' },
-];
+import { investmentsMock } from '@/app/services/investmentsMock';
 
 export default function Investments() {
-  const rendaFixa = data[0].value + data[1].value;
-  const rendaVariavel = data[2].value + data[3].value;
-  const total = data.reduce((acc, cur) => acc + cur.value, 0);
+  const rendaFixa = investmentsMock.rendaFixa;
+  const rendaVariavel = investmentsMock.rendaVariavel;
+  const total = investmentsMock.total;
+  const data = investmentsMock.chartData;
 
   const [isMobile, setIsMobile] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);

@@ -10,8 +10,12 @@ import Saque from "@/app/images/Saque.svg";
 
 import styles from "./ContentHomePage.module.scss"
 
+interface ContentHomePageProps {
+  onOpenRegister?: () => void;
+  onOpenLogin?: () => void;
+}
 
-export default function ContentHomePage() {
+export default function ContentHomePage({ onOpenRegister, onOpenLogin }: ContentHomePageProps) {
 
   const goToInit = () => {
     if (typeof window !== "undefined") {
@@ -122,8 +126,8 @@ export default function ContentHomePage() {
         {renderBanner()}
         {shouldRenderButtons() && (
           <div className={styles.buttons}>
-            <button className={cn(styles.button, styles.btnOpenAccount)}>Abrir conta</button>
-            <button className={cn(styles.button, styles.btnLogin)} onClick={goToInit}>Já tenho conta</button>
+            <button className={cn(styles.button, styles.btnOpenAccount)} onClick={onOpenRegister}>Abrir conta</button>
+            <button className={cn(styles.button, styles.btnLogin)} onClick={onOpenLogin}>Já tenho conta</button>
           </div>
         )}
         {renderBenefits()}
