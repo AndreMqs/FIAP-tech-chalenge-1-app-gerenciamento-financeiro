@@ -95,5 +95,5 @@ interface HeaderProps {
     route: string;
     selected: boolean;
   }[];
-  // onMenuClick?: (title: string) => void; // agora aceito via interseção
+
 }
