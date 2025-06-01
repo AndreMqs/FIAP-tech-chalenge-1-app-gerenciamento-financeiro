@@ -6,12 +6,23 @@ import { parseMoneyValue } from "@/app/utils/stringUtils";
 import { Statement } from "@/app/models/Statement";
 
 import styles from "./SingleStatement.module.scss"
+import Delete from '@/app/images/Delete.svg';
 
 
-export default function SingleStatement(props: SingleStatementProps) {
-  const {statement: {type, date, moneyValue}, isEditing} = props;
+export default function SingleStatement(props: SingleStatementProps & {
+  selectedStatement: Statement | null;
+  setSelectedStatement: (s: Statement | null) => void;
+}) {
+  const {statement, isEditing, selectedStatement, setSelectedStatement} = props;
+  const {type, date, moneyValue} = statement;
   const [inputValue, setInputValue] = useState<string>(moneyValue.toString());
   const [isFocused, setIsFocused] = useState(false);
+
+  const isSelected =
+    selectedStatement &&
+    selectedStatement.type === type &&
+    selectedStatement.moneyValue === moneyValue &&
+    selectedStatement.date.getTime() === date.getTime();
 
   useEffect(() => {
     setInputValue(moneyValue.toString());
@@ -33,24 +44,49 @@ export default function SingleStatement(props: SingleStatementProps) {
   return (
     <div 
       id='singleStatement' 
-      className={styles.singleStatementContainer}
+      className={styles.singleStatementContainer + (isSelected ? ' ' + styles.selected : '')}
+      style={{
+        background: isSelected ? '#E4EDE3' : undefined,
+        cursor: !isEditing ? 'pointer' : 'default',
+        borderRadius: isSelected ? 8 : undefined,
+        transition: 'background 0.2s',
+        height: '100%',
+      }}
+      onClick={() => {
+        if (!isEditing) setSelectedStatement(isSelected ? null : statement);
+      }}
     >
       <span className={styles.typeAndDateContainer}>
         <span className={styles.type}>{type}</span>
         <span className={styles.date}>{date.toLocaleDateString('pt-BR')}</span>
       </span>
 
-      <input 
-        className={styles.inputMoney}
-        type="text" 
-        id="money" 
-        name="money" 
-        readOnly={!isEditing} 
-        value={getInputValue()}
-        onChange={(e) => setInputValue(e.target.value)}
-        onBlur={() => setIsFocused(false)}
-        onFocus={() => setIsFocused(true)}
-      />
+      <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
+        <input 
+          className={styles.inputMoney}
+          type="text" 
+          id="money" 
+          name="money" 
+          readOnly={!isEditing} 
+          value={getInputValue()}
+          onChange={(e) => setInputValue(e.target.value)}
+          onBlur={() => setIsFocused(false)}
+          onFocus={() => setIsFocused(true)}
+        />
+        {isEditing && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedStatement(null);
+            }}
+            style={{background: 'none', border: 'none', cursor: 'pointer', padding: 0}}
+            title="Excluir transação"
+          >
+            <img src={Delete.src} alt="Excluir" height={20} width={20} />
+          </button>
+        )}
+      </div>
     </div>
   );
 }

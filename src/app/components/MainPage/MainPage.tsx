@@ -17,6 +17,8 @@ const OtherServices = dynamic(() => import('../OtherServices/OtherServices'), { 
 
 import styles from "./MainPage.module.scss";
 
+import { Statement as StatementType } from '@/app/models/Statement';
+
 export default function MainPage(props: MainPageProps) {
   const user = {
     name: "Joana",
@@ -24,6 +26,49 @@ export default function MainPage(props: MainPageProps) {
   };
 
   const [selectedMenu, setSelectedMenu] = useState("Início");
+
+  const [statementsList, setStatementsList] = useState<StatementType[]>([
+    {
+      type: 'Transferência',
+      date: new Date('2024-01-09'),
+      moneyValue: -150,
+    },
+    {
+      type: 'Depósito',
+      date: new Date('2024-01-21'),
+      moneyValue: 1501,
+    },
+    {
+      type: 'Depósito',
+      date: new Date('2024-02-17'),
+      moneyValue: 1502,
+    },
+    {
+      type: 'Depósito',
+      date: new Date('2024-03-15'),
+      moneyValue: 1503,
+    },
+    {
+      type: 'Depósito',
+      date: new Date('2024-03-13'),
+      moneyValue: 1504,
+    },
+  ]);
+
+  function addStatement(statement: Omit<StatementType, 'date'> & { date?: Date }) {
+    setStatementsList(prev => [
+      { ...statement, date: statement.date || new Date() },
+      ...prev
+    ]);
+  }
+
+  function deleteStatement(statement: StatementType) {
+    setStatementsList(prev => prev.filter(s =>
+      !(s.type === statement.type &&
+        s.moneyValue === statement.moneyValue &&
+        s.date.getTime() === statement.date.getTime())
+    ));
+  }
 
   const menuItems = [
     {
@@ -55,7 +100,7 @@ export default function MainPage(props: MainPageProps) {
       case "Outros serviços":
         return <OtherServices />;
       default:
-        return <NewTransaction />;
+        return <NewTransaction addStatement={addStatement} />;
     }
   }
 
@@ -77,7 +122,7 @@ export default function MainPage(props: MainPageProps) {
       <div id="mainContentContainer" className={styles.mainContentContainer}>
         <Menu items={menuItems} onMenuClick={setSelectedMenu} />
         {renderMiddleContent()}
-        <Statement />
+        <Statement statementsList={statementsList} deleteStatement={deleteStatement} />
       </div>
     </div>
   );

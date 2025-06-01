@@ -8,7 +8,8 @@ import { parseMoneyValue } from '@/app/utils/stringUtils';
 import styles from "./NewTransaction.module.scss"
 
 
-export default function NewTransaction(props: NewTransactionProps) {
+export default function NewTransaction(props: NewTransactionProps & { addStatement: (s: { type: string; moneyValue: number }) => void }) {
+  const { addStatement } = props;
   const transactionOptions = [
     'Câmbio de Moeda',
     'DOC/TED',
@@ -41,6 +42,15 @@ export default function NewTransaction(props: NewTransactionProps) {
     return parseMoneyValue(value);
   }
 
+  const handleAdd = () => {
+    if (!selectedValue || !inputValue) return;
+    const value = parseFloat(inputValue.replace(/[^0-9\-.,]/g, '').replace(',', '.'));
+    if (isNaN(value)) return;
+    addStatement({ type: selectedValue, moneyValue: value });
+    setSelectValue('');
+    setInputValue('');
+  };
+
   return (
     <div id='newTransaction' className={styles.transactionContainer}>
       <div className={styles.transactionContent}>
@@ -70,7 +80,7 @@ export default function NewTransaction(props: NewTransactionProps) {
             onBlur={() => setIsFocused(false)}
           />
         </span>
-        <button className={styles.finishTransaction}>{getButtonText()}</button>
+        <button className={styles.finishTransaction} onClick={handleAdd}>{getButtonText()}</button>
       </div>
     </div>
   );

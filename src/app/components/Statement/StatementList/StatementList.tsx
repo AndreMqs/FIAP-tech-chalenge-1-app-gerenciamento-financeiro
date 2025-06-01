@@ -8,13 +8,22 @@ import { Statement } from "@/app/models/Statement";
 import styles from "./StatementList.module.scss"
 
 
-export default function StatementList(props: SingleStatementProps) {
-  const {statementsByMonth, isEditing} = props;
+export default function StatementList(props: SingleStatementProps & {
+  selectedStatement: Statement | null;
+  setSelectedStatement: (s: Statement | null) => void;
+}) {
+  const {statementsByMonth, isEditing, selectedStatement, setSelectedStatement} = props;
 
   const renderSingleStatement = (month: string) => {
     return (
       statementsByMonth.get(month)?.map((statement, index) =>
-        <SingleStatement statement={statement} isEditing={isEditing} key={index}/>
+        <SingleStatement 
+          statement={statement} 
+          isEditing={isEditing} 
+          key={index} 
+          selectedStatement={selectedStatement}
+          setSelectedStatement={setSelectedStatement}
+        />
       )
     );
   }

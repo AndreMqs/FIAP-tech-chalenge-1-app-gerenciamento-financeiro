@@ -8,42 +8,23 @@ import Edit from "@/app/images/Edit.svg";
 import StatementList from './StatementList/StatementList';
 
 import { getStatementByMonth } from '@/app/utils/statementUtils';
+import { Statement as StatementType } from '@/app/models/Statement';
 
 import styles from "./Statement.module.scss"
 
 
-export default function Statement(props: StatementProps) {
-  const {} = props;
+export default function Statement(props: StatementProps & { statementsList: StatementType[], deleteStatement: (s: StatementType) => void }) {
+  const { statementsList = [], deleteStatement } = props;
 
   const [isEditing, setIsEditing] = useState(false);
+  const [selectedStatement, setSelectedStatement] = useState<StatementType | null>(null);
 
-  const statementsList = [
-    {
-      type: 'Transferência',
-      date: new Date('2024-01-09'),
-      moneyValue: -150,
-    },
-    {
-      type: 'Depósito',
-      date: new Date('2024-01-21'),
-      moneyValue: 1501,
-    },
-    {
-      type: 'Depósito',
-      date: new Date('2024-02-17'),
-      moneyValue: 1502,
-    },
-    {
-      type: 'Depósito',
-      date: new Date('2024-03-15'),
-      moneyValue: 1503,
-    },
-    {
-      type: 'Depósito',
-      date: new Date('2024-03-13'),
-      moneyValue: 1504,
-    },
-  ]
+  const handleDelete = () => {
+    if (!isEditing && selectedStatement) {
+      deleteStatement(selectedStatement);
+      setSelectedStatement(null);
+    }
+  };
 
   return (
     <div id='statement' className={styles.statementContainer}>
@@ -58,7 +39,7 @@ export default function Statement(props: StatementProps) {
               width={22}
             />
           </IconButton>
-          <IconButton className={styles.headerButton}>
+          <IconButton className={styles.headerButton} onClick={handleDelete} disabled={isEditing || !selectedStatement}>
             <Image 
               src={Delete}
               alt="Remover"
@@ -72,6 +53,8 @@ export default function Statement(props: StatementProps) {
         <StatementList 
           statementsByMonth={getStatementByMonth(statementsList)}
           isEditing={isEditing}
+          selectedStatement={selectedStatement}
+          setSelectedStatement={setSelectedStatement}
         />
       </div>
     </div>
