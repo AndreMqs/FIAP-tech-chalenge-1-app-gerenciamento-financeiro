@@ -9,7 +9,7 @@ Abaixo farei uma breve explicação de como rodar o projeto em ambiente de desen
 - O projeto já deve estar rodando localmente
 
 - Obs: tive problemas para clonar o projeto usando SSH, não sei se fiz alguma configuração errada no git, então caso não funcione, tente com HTTPS
-- Adicionei o vídeo de explicação em formato zip, na pasta video
+- O vídeo nessa pasta está desatualizado. O atualizado foi adicionado na pasta do Tech Challenge
 - O favicon correto foi adicionado após a gravação do vídeo
 
 ## README NEXT
