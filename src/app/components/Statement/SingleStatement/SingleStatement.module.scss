@@ -4,6 +4,7 @@
   flex-direction: column;
   height: 38px;
   justify-content: space-between;
+  transition: background 0.2s, border-radius 0.2s, padding 0.2s;
   
   .typeAndDateContainer {
     display: flex;
@@ -41,4 +42,10 @@
       outline: none;
     }
   }
+}
+
+.selected {
+  background: #E4EDE3;
+  border-radius: 12px;
+  padding: 8px 0;
 }

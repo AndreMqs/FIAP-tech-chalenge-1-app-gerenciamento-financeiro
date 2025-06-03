@@ -95,3 +95,35 @@
     color: #FF5031 !important;
   }
 }
+
+.userMenu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 16px 24px;
+  z-index: 100;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.logoutButton {
+  background: #FF5031;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 24px;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.2s;
+}
+.logoutButton:hover {
+  background: #e64525;
+}

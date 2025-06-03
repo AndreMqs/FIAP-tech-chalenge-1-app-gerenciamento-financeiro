@@ -3,8 +3,8 @@ import cn from 'classnames';
 import styles from "./Menu.module.scss"
 
 
-export default function Menu(props: MenuProps) {
-  const {items} = props;
+export default function Menu(props: MenuProps & { onMenuClick?: (title: string) => void }) {
+  const {items, onMenuClick} = props;
 
   return (
     <div id='menu' className={styles.menuContainer}>
@@ -13,6 +13,12 @@ export default function Menu(props: MenuProps) {
           key={item.title}
           className={cn({[styles.itemSelected]: item.selected}, styles.menuItem)} 
           href={item.route}
+          onClick={e => {
+            if (onMenuClick) {
+              e.preventDefault();
+              onMenuClick(item.title);
+            }
+          }}
         >
           {item.title}
         </a>

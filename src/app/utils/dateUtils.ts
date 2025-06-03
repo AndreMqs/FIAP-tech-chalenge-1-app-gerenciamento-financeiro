@@ -9,5 +9,5 @@ const days: {[key: number]: string} = {
 };
 
 export function parseDateString(date: Date) {
-  return `${days[date.getDay()]}, ${date.toLocaleDateString()}`;
+  return `${days[date.getDay()]}, ${date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })}`;
 }
